@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+      "target": "ESNext",
+      "module": "NodeNext",
+      "lib": ["ESNext"],
+      "outDir": "./build",
+      "rootDir": "./",
+      "strict": true,
+      "noImplicitAny": true,
+      "strictNullChecks": true,
+      "noImplicitReturns": true,
+      "baseUrl": ".",
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "skipDefaultLibCheck": true
+    },
+    "exclude": ["node_modules", "dist"],
+  
+    "ts-node": {
+      "esm": true,
+      "transpileOnly": true
+    }
+  }

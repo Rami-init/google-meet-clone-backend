@@ -358,7 +358,7 @@
     "@types/range-parser" "*"
     "@types/send" "*"
 
-"@types/express@^4.17.13":
+"@types/express@*", "@types/express@^4.17.13":
   version "4.17.17"
   resolved "https://registry.yarnpkg.com/@types/express/-/express-4.17.17.tgz#01d5437f6ef9cfa8668e616e13c2f2ac9a491ae4"
   integrity sha512-Q4FmmuLGBG58btUnfS1c1r/NQdlp3DMfGDGig8WhfpA2YRUtEkxAjkZb0yvplJGYdF1fsQ81iMDcH24sSCNC/Q==
@@ -423,6 +423,38 @@
   version "14.18.62"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-14.18.62.tgz#cc691367ad9a09994a36be41cbc9f44e414cf77c"
   integrity sha512-53Fhb08qfKwSNCIUtysIqw0ye+v1d5QCdL2kl8liKQFlOZTAo+nEYr/FztzMaHBFwB5H0ugF0PF0gmtojaNNiQ==
+
+"@types/oauth@*":
+  version "0.9.2"
+  resolved "https://registry.yarnpkg.com/@types/oauth/-/oauth-0.9.2.tgz#846f11d732deadff4303228d81f07a7b377df287"
+  integrity sha512-Nu3/abQ6yR9VlsCdX3aiGsWFkj6OJvJqDvg/36t8Gwf2mFXdBZXPDN3K+2yfeA6Lo2m1Q12F8Qil9TZ48nWhOQ==
+  dependencies:
+    "@types/node" "*"
+
+"@types/passport-google-oauth20@^2.0.11":
+  version "2.0.11"
+  resolved "https://registry.yarnpkg.com/@types/passport-google-oauth20/-/passport-google-oauth20-2.0.11.tgz#271ec71de3030a3e1c004b24e633e4b298ccba97"
+  integrity sha512-9XMT1GfwhZL7UQEiCepLef55RNPHkbrCtsU7rsWPTEOsmu5qVIW8nSemtB4p+P24CuOhA+IKkv8LsPThYghGww==
+  dependencies:
+    "@types/express" "*"
+    "@types/passport" "*"
+    "@types/passport-oauth2" "*"
+
+"@types/passport-oauth2@*":
+  version "1.4.12"
+  resolved "https://registry.yarnpkg.com/@types/passport-oauth2/-/passport-oauth2-1.4.12.tgz#c2ae0ee3b16646188d8b0b6cdbc6880a0247dc5f"
+  integrity sha512-RZg6cYTyEGinrZn/7REYQds6zrTxoBorX1/fdaz5UHzkG8xdFE7QQxkJagCr2ETzGII58FAFDmnmbTUVMrltNA==
+  dependencies:
+    "@types/express" "*"
+    "@types/oauth" "*"
+    "@types/passport" "*"
+
+"@types/passport@*", "@types/passport@^1.0.12":
+  version "1.0.12"
+  resolved "https://registry.yarnpkg.com/@types/passport/-/passport-1.0.12.tgz#7dc8ab96a5e895ec13688d9e3a96920a7f42e73e"
+  integrity sha512-QFdJ2TiAEoXfEQSNDISJR1Tm51I78CymqcBa8imbjo6dNNu+l2huDxxbDEIoFIwOSKMkOfHEikyDuZ38WwWsmw==
+  dependencies:
+    "@types/express" "*"
 
 "@types/qs@*":
   version "6.9.8"

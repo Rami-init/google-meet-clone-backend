@@ -26,6 +26,14 @@ const EnvironmentConfigSchema = z.object({
     .string()
     .nonempty()
     .default(() => (isProduction ? "" : "redis://localhost:6379")),
+  GOOGLE_CLIENT_ID: z
+    .string()
+    .nonempty()
+    .default(() => (isProduction ? "" : "google_client_id")),
+  GOOGLE_CLIENT_SECRET: z
+    .string()
+    .nonempty()
+    .default(() => (isProduction ? "" : "google_client_secret")),
 });
 type TEnvironmentConfig = z.infer<typeof EnvironmentConfigSchema> & {
   isProduction: boolean;

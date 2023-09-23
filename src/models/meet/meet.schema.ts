@@ -10,25 +10,25 @@ export class Meet {
 
   @Field((type) => Boolean, {
     description: "Is the meet have enable screen sharing",
-    defaultValue: false,
+    defaultValue: true,
   })
   enableScreenSharing?: boolean;
 
   @Field((type) => Boolean, {
     description: "Is the meet enable chat",
-    defaultValue: false,
+    defaultValue: true,
   })
   enableChat?: boolean;
 
   @Field((type) => Boolean, {
     description: "Is the meet enable video",
-    defaultValue: false,
+    defaultValue: true,
   })
   enableVideo?: boolean;
 
   @Field((type) => Boolean, {
     description: "Is the meet enable microphone",
-    defaultValue: false,
+    defaultValue: true,
   })
   enableMicrophone?: boolean;
 
@@ -46,19 +46,19 @@ export class Meet {
 
   @Field((type) => Boolean, {
     description: "Is the meet enable presentation",
-    defaultValue: false,
+    defaultValue: true,
   })
   organizedAdministration?: boolean;
 
   @Field((type) => Boolean, {
     description: "Is the meet enable notifications",
-    defaultValue: false,
+    defaultValue: true,
   })
   enableNotifications?: boolean;
 
   @Field((type) => Boolean, {
     description: "Is the meet enable participants",
-    defaultValue: false,
+    defaultValue: true,
   })
   isActive?: boolean;
 
@@ -71,11 +71,11 @@ export class Meet {
   @Field({ description: "created at the meet" })
   createdAt: Date;
 
-  @Field({ description: "Host id of the meet", nullable: true })
-  hostId?: string;
-
   @Field((type) => User, { description: "Host of the meet", nullable: true })
   host?: User;
+
+  @Field({ description: "Host id of the meet", nullable: true })
+  hostId?: string;
 
   @Field((type) => [User], {
     description: "Participants of the meet",

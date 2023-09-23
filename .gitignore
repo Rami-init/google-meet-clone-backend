@@ -3,3 +3,4 @@ dist
 yarn-error.log
 .env.production
 .DS_Store
+.env

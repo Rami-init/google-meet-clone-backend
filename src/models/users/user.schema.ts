@@ -6,7 +6,7 @@ import { Message } from "../messages/message.schema";
 @ObjectType()
 export class User {
   @Field({ description: "Id of the user" })
-  googleId: string;
+  id: string;
 
   @Field({ description: "Username of the user" })
   username: string;
@@ -16,12 +16,6 @@ export class User {
 
   @Field({ description: "Email of the user" })
   email: string;
-
-  @Field({ description: "Created at of the user" })
-  createdAt: Date;
-
-  @Field({ description: "Updated at of the user", nullable: true })
-  updatedAt?: Date;
 
   @Field({ description: "Profile picture of the user", nullable: true })
   pic?: string;

@@ -7,8 +7,8 @@ export class Message {
   @Field((type) => ID, { description: "Id of the message" })
   id: string;
 
-  @Field({ description: "Message content", nullable: true })
-  message: string;
+  @Field({ description: "Message content" })
+  content: string;
 
   @Field(() => User, { description: "User who sent the message" })
   user: User;

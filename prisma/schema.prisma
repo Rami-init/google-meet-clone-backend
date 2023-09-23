@@ -1,0 +1,63 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          String     @id
+  username    String
+  name        String
+  email       String
+  pic         String     @db.Text
+  hostedMeets Meet[]     @relation("HOSTED_MEETS")
+  message     Message[]
+  feedBack    FeedBack[]
+  meets       Meet[]     @relation("MEETS_HISTORY")
+}
+
+model Message {
+  id        String   @id @default(uuid())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String
+  content   String
+  meet      Meet     @relation(fields: [meetId], references: [id])
+  meetId    String
+  createdAt DateTime @default(now())
+}
+
+model Meet {
+  id                      String     @id
+  enableScreenSharing     Boolean    @default(true)
+  enableChat              Boolean    @default(true)
+  enableMicrophone        Boolean    @default(true)
+  enableVideo             Boolean    @default(true)
+  enableWhiteboard        Boolean    @default(false)
+  enableNotes             Boolean    @default(false)
+  organizerAdministration Boolean    @default(true)
+  enableNotifications     Boolean    @default(true)
+  isActive                Boolean    @default(true)
+  createdAt               DateTime   @default(now())
+  duration                Int?
+  host                    User       @relation("HOSTED_MEETS", fields: [hostId], references: [id])
+  hostId                  String
+  participants            User[]     @relation("MEETS_HISTORY")
+  chat                    Message[]
+  feedBack                FeedBack[]
+}
+
+model FeedBack {
+  id        String   @id @default(uuid())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String
+  meet      Meet     @relation(fields: [meetId], references: [id])
+  meetId    String
+  stars     Int
+  createdAt DateTime @default(now())
+}

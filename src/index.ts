@@ -3,6 +3,7 @@ import { expressMiddleware } from "@apollo/server/express4";
 import { ApolloServerPluginDrainHttpServer } from "@apollo/server/plugin/drainHttpServer";
 import express from "express";
 import { createServer } from "http";
+import "reflect-metadata";
 
 import bodyParser from "body-parser";
 import cors from "cors";

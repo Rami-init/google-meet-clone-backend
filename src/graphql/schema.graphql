@@ -1,0 +1,106 @@
+# This User type has the necessary field to connect to get meeting
+type User {
+  id: ID!
+  # Id of the user
+  username: String
+  # Username of the user
+  name: String!
+  # Name of the user
+  email: String!
+  # Email of the user
+  pic: String
+  # Profile picture of the user
+  hostedMeets: [Meet!]!
+  meets: [Meet!]!
+  # The meets connected with user
+  message: [Message!]!
+  # The messages connected with user
+  feedback: [FeedBack!]!
+  # The feedbacks connected with user
+}
+
+# This Message type has 7 fields : id, content, user, userId, meet, meetId and createdAt
+type Message {
+  id: ID!
+  # Id of the message
+  content: String!
+  # Message content
+  user: User!
+  # User who sent the message
+  userId: String
+  # Id of the user who sent the message
+  meet: Meet
+  # Meet of the message
+  meetId: String
+  # Id of the meet of the message
+  createAt: String
+  # Created date of the message
+}
+
+# This Message type has 17 fields : id, enableScreenSharing, enableChat, enableVideo, enableMicrophone
+# enableWhiteboard, enableNotes, organizedAdministration, enableNotifications, isActive
+# duration createdAt, host, hostId, participants, chat, feedBack and createdAt
+type Meet {
+  id: ID!
+  # Id of the meet
+  enableScreenSharing: Boolean
+  # Is the meet have enable screen sharing
+  enableChat: Boolean
+  # Is the meet enable chat
+  enableVideo: Boolean
+  # Is the meet enable video
+  enableMicrophone: Boolean
+  # Is the meet enable microphone
+  enableWhiteboard: Boolean
+  # Is the meet enable whiteboard
+  enableNotes: Boolean
+  # Is the meet enable notes
+  organizedAdministration: Boolean
+  # Is the meet enable presentation
+  enableNotifications: Boolean
+  # Is the meet enable notifications
+  isActive: Boolean
+  # Is the meet active
+  duration: Number
+  # Duration of the meet
+  createdAt: String!
+  # created at the meet
+  host: User!
+  # Host of the meet
+  hostId: String!
+  # Host id of the meet
+  participants: [User!]!
+  # Participants of the meet
+  chat: [Message]
+  # Chat of the meet
+  feedBack: [FeedBack]
+  # FeedBack of the meeting
+}
+
+# This Message type has 7 fields : id, user, userId, meet, meetId, createdAt and starts
+type FeedBack {
+  id: ID!
+  # Name of the user
+  user: User!
+  # User who sent the message
+  userId: String!
+  # Id of the user who create feedback
+  meet: Meet!
+  # Created at of feedback
+  meetId: String!
+  # Meet of the user
+  createdAt: String!
+  # Id of the user who create feedback
+  stars: Number!
+  # how many start the app get
+}
+
+type Error {
+  path: String
+  message: String!
+}
+
+type Query {
+  users: [Users]
+  user: User
+}

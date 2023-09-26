@@ -7,7 +7,7 @@ import {
   Profile,
   VerifyCallback,
 } from "passport-google-oauth20";
-import { env } from "src/config/environment";
+import { env } from "../../config/environment";
 
 export const withGoogle = (app: Application, prisma: PrismaClient) => {
   //   app.use(passport.initialize());
@@ -17,7 +17,7 @@ export const withGoogle = (app: Application, prisma: PrismaClient) => {
       {
         clientID: env.GOOGLE_CLIENT_ID,
         clientSecret: env.GOOGLE_CLIENT_SECRET,
-        callbackURL: "http://localhost:8000/oauth/google",
+        callbackURL: "http://localhost:8000/auth/google/callback",
         scope: ["profile", "email", "openid"],
       },
       async function (
@@ -56,14 +56,14 @@ export const withGoogle = (app: Application, prisma: PrismaClient) => {
   );
 
   app.get(
-    "/oauth/google/callback",
+    "/auth/google/callback",
     passport.authenticate("google", {
       failureRedirect: "/login",
       session: false,
     }),
     function (req, res) {
-      // @ts-expect-error
-      req.session.userId = req.user.user.id;
+      console.log(req.user);
+      // req.session.userId = req.user.user.id;
       // Successful authentication, redirect home.
       res.redirect("/");
     }
